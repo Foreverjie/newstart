@@ -85,4 +85,5 @@ class CrackGeetest():
         '''
         left = 60
         for i in range(left, image1.size[0]):
-            for j in range(image1.size[1])
+            for j in range(image1.size[1]):
+                pass
