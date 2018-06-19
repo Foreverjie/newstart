@@ -7,7 +7,7 @@ try:
 except:
     from aiohttp import ClientProxyConnectionError as ProxyConnectionError
 from .proxyStore import RedisClient
-from .setting import *
+from newstart.proxyPool.setting import *
 
 class Tester:
     def __init__(self):

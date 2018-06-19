@@ -1,7 +1,7 @@
 import redis
-from .error import PoolEmptyError
-from .setting import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, REDIS_KEY
-from .setting import MAX_SCORE, MIN_SCORE, INITIAL_SCORE
+from newstart.proxyPool.error import PoolEmptyError
+from newstart.proxyPool.setting import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, REDIS_KEY
+from newstart.proxyPool.setting import MAX_SCORE, MIN_SCORE, INITIAL_SCORE
 from random import choice
 import re
 

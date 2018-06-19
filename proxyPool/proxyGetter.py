@@ -1,7 +1,7 @@
-from .proxyStore import RedisClient
-from .proxyCrawler import Crawler
-from .setting import *
-from .tester import Tester
+from newstart.proxyPool.proxyStore import RedisClient
+from newstart.proxyPool.proxyCrawler import Crawler
+from newstart.proxyPool.setting import *
+from newstart.proxyPool.tester import Tester
 import sys
 
 class Getter():
@@ -18,3 +18,14 @@ class Getter():
             return True
         else:
             return False
+
+    def run(self):
+        print('获取器开始执行')
+        if not self.is_over_threshold():
+            for callback_label in range(self.crawler.__CrawlFuncCount__):
+                callback = self.crawler.__CrawlFunc__[callback_label]
+                # 获取代理
+                proxies = self.crawler.get_proxies(callback)
+                sys.stdout.flush()
+                for proxy in proxies:
+                    self.redis.add(proxy)
